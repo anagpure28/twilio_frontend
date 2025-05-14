@@ -9,8 +9,8 @@ function ParticipantChecker() {
 
   const checkCounts = async () => {
     try {
-      const localRes = await axios.get(`http://localhost:8080/api/v1/mwellness/participants/local?roomName=${roomName}`);
-      const twilioRes = await axios.get(`http://localhost:8080/api/v1/mwellness/participants/twilio?roomName=${roomName}`);
+      const localRes = await axios.get(`http://3.6.135.153:8080/api/v1/mwellness/participants/local?roomName=${roomName}`);
+      const twilioRes = await axios.get(`http://3.6.135.153:8080/api/v1/mwellness/participants/twilio?roomName=${roomName}`);
 
       setLocalCount(localRes.data.count);
       setTwilioCount(twilioRes.data.count);
