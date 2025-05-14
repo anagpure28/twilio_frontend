@@ -24,7 +24,7 @@ const createRoom = async () => {
 
   setIsCreatingRoom(true);
   try {
-    const res = await axios.post('http://localhost:8080/api/v1/mwellness/create-room', {
+    const res = await axios.post('http://3.6.135.153:8080/api/v1/mwellness/create-room', {
       roomName,
       password,
       doctorId,
@@ -60,7 +60,7 @@ const createRoom = async () => {
 
   const createParticipant = async () => {
     try {
-      const res = await axios.post('http://localhost:8080/api/v1/mwellness/create-participant', {
+      const res = await axios.post('http://3.6.135.153:8080/api/v1/mwellness/create-participant', {
         roomName,
         participantType,
         participantId,
@@ -75,7 +75,7 @@ const createRoom = async () => {
 
   const enterRoom = async () => {
     try {
-      const res = await axios.post('http://localhost:8080/api/v1/mwellness/enter-room', {
+      const res = await axios.post('http://3.6.135.153:8080/api/v1/mwellness/enter-room', {
         roomName,
         password,
         authToken,
@@ -121,7 +121,7 @@ const createRoom = async () => {
       setReconnectAttempts(prev => prev + 1);
       
       // First check if room still exists
-      const roomCheck = await axios.post('http://localhost:8080/api/v1/mwellness/enter-room', {
+      const roomCheck = await axios.post('http://3.6.135.153:8080/api/v1/mwellness/enter-room', {
         roomName,
         password,
         authToken,
@@ -174,7 +174,7 @@ const endRoom = async () => {
     if (roomEnded || isEndingRoom) return; // Prevent multiple calls
     setIsEndingRoom(true);
     try {
-        const res = await axios.post(`http://localhost:8080/api/v1/mwellness/end-room`, {
+        const res = await axios.post(`http://3.6.135.153:8080/api/v1/mwellness/end-room`, {
             roomName,
             participantType: 'doctor',
         });
